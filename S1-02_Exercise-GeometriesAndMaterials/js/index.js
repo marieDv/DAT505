@@ -5,7 +5,7 @@ goldMesh, goldMat, goldGeom,
 stoneMesh, stoneMat, stoneGeom,
 bStoneMesh, bStoneMat, bStoneGeom,
 woodMesh, woodMat, woodGeom,
-group;
+group, spiralGroup, strawMesh;
 
 function init(){
 
@@ -33,10 +33,12 @@ function geometry(){
   group = new THREE.Object3D();
   // Create a Cube Mesh with basic material ---------
   var geometry = new THREE.SphereGeometry(30, 100, 100, 0, 3, 0, 3);
-  bStoneGeom = new THREE.SphereGeometry(30, 9, 9, 0, 3.2, 0, 3);
-  goldGeom = new THREE.CylinderGeometry( 30.1, 30.1, 1.3, 20 );
+  // bStoneGeom = new THREE.SphereGeometry(30, 9, 9, 0, 3.2, 0, 3);
+  bStoneGeom = new THREE.SphereGeometry(30, 9, 9, 0);
+  goldGeom = new THREE.CylinderGeometry( 30.1, 30.1, 3.3, 40 );
   woodGeom = new THREE.CylinderGeometry( 30.1, 30.1, 10, 50 );
   stoneGeom = new THREE.CylinderGeometry( 32, 32, 1.3, 20 );
+  var straw = new THREE.CylinderGeometry(2, 2, 150, 20);
   //SphereGeometry( radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength )
 
 
@@ -63,7 +65,7 @@ function geometry(){
 
   goldMat = new THREE.MeshPhongMaterial({
       shininess: 1,
-      color: "#d8ce72",
+      color: "#ffffff",
   })
 
   //MATERIAL 3:
@@ -99,7 +101,7 @@ function geometry(){
   wmap.repeat.y = 1.1;
   wmap.rotation.y = 5.6;
   bStoneMat = new THREE.MeshPhongMaterial({
-  color: 0x42413e,
+  color: 0x1e29ff,
   specular: 0x42413e,
   shininess: 1,
   lightMap: null,
@@ -119,10 +121,11 @@ function geometry(){
   woodMat = new THREE.MeshPhongMaterial({
   // color: 0x42413e,
   specular: 0x42413e,
+  color: 0xf64cff,
   shininess: 1,
   lightMap: null,
   lightMapIntensity: 0.1,
-  bumpMap: bmap,
+  // bumpMap: bmap,
   bumpScale:10,
   map: wmap,
   mapScale: 20,
@@ -156,16 +159,16 @@ function geometry(){
   createSpiral();
 function createSpiral(){
 
-  var distance = 4;
-  let height = 7;
-  var mmaterial = new THREE.MeshBasicMaterial({color:0x00ff44, wireframe: true,});
-  let spiralGroup = new THREE.Object3D();
+  var distance = 17;
+  let height = 120;
+  var mmaterial = new THREE.MeshBasicMaterial({color:0x00ff44, wireframe: true, transparent: true, opacity: 0.2});
+  spiralGroup = new THREE.Object3D();
   //initial offset so does not start in middle.
   var xOffset = -80;
 
-  for(var i = 0; i < 6; i++){
-      for(var j = 0; j < 5; j++){
-              let mgeometry = new THREE.CylinderGeometry( height, height, 2, 3 );
+  for(var i = 0; i < 3; i++){
+      for(var j = 0; j < 1; j++){
+              let mgeometry = new THREE.CylinderGeometry( height, height, 0.1, 3 );
               var mesh  = new THREE.Mesh(mgeometry, mmaterial);
               mesh.position.x = (distance * i) + xOffset;
               mesh.position.z = -400;
@@ -181,20 +184,31 @@ function createSpiral(){
 }
 
   mesh = new THREE.Mesh( geometry, material );
-  goldMesh = new THREE.Mesh(goldGeom, goldMat);
+  goldMesh = new THREE.Mesh(goldGeom, material);
   stoneMesh = new THREE.Mesh(stoneGeom, stoneMat);
   bStoneMesh = new THREE.Mesh(bStoneGeom, bStoneMat);
   woodMesh = new THREE.Mesh(woodGeom, woodMat);
+  strawMesh = new THREE.Mesh(straw, goldMat);
   mesh.position.z = -400;
+  strawMesh.position.z = -400;
+  strawMesh.position.y = -70;
+  strawMesh.position.x = -40;
+  strawMesh.rotation.z = -0.6;
+
   goldMesh.position.z = -400;
   woodMesh.position.z = -400;
   woodMesh.position.x =-30;
-  woodMesh.rotation.z = 1.58;
+  woodMesh.position.z = -420;
+  woodMesh.rotation.y = 1.2;
+  woodMesh.rotation.x = 0.1;
   goldMesh.position.x = 4;
   stoneMesh.position.z = -400;
   bStoneMesh.position.z = -400;
   bStoneMesh.rotation.x = 1.1;
-  stoneMesh.rotation.x +=2.9;
+  bStoneMesh.rotation.y = 1.1;
+  goldMesh.rotation.y = 2.1;
+  // goldMesh.rotation.x += 2.9;
+  // stoneMesh.rotation.x +=2.9;
   bStoneMesh.rotation.y +=1.6;
   bStoneMesh.position.x = 4;
   mesh.position.x = -4;
@@ -209,7 +223,7 @@ function createSpiral(){
   // Add mesh to scene
   // group.add( mesh );
   group.add( goldMesh );
-  // group.add( stoneMesh );
+  group.add( strawMesh );
   group.add( bStoneMesh );
   group.add(woodMesh)
   scene.add(group)
@@ -218,7 +232,11 @@ function createSpiral(){
 // Render Loop
 function render() {
   requestAnimationFrame( render );
-
+for(let i=0; i<spiralGroup.children.length; i++){
+  i % 5 === 0 ? spiralGroup.children[i].rotation.x += 0.002 : spiralGroup.children[i].rotation.x -= 0.001;
+  i % 3 === 0 ? spiralGroup.children[i].rotation.y += 0.003 : spiralGroup.children[i].rotation.y -= 0.02;
+}
+  strawMesh.rotation.x += 0.001;
   bStoneMesh.rotation.x += 0.001; //Continuously rotate the mesh
   goldMesh.rotation.x += 0.001; //Continuously rotate the mesh
   woodMesh.rotation.x -=0.002;
