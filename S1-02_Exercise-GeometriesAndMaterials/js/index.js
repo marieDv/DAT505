@@ -157,20 +157,20 @@ function geometry(){
 function createSpiral(){
 
   var distance = 4;
-  let height = 1;
-  var mmaterial = new THREE.MeshBasicMaterial({color:0x00ff44});
+  let height = 7;
+  var mmaterial = new THREE.MeshBasicMaterial({color:0x00ff44, wireframe: true,});
   let spiralGroup = new THREE.Object3D();
   //initial offset so does not start in middle.
   var xOffset = -80;
 
   for(var i = 0; i < 6; i++){
       for(var j = 0; j < 5; j++){
-              let mgeometry = new THREE.CylinderGeometry( height, height, 2, 30 );
-              var mesh  = new THREE.Mesh(mgeometry, goldMat);
+              let mgeometry = new THREE.CylinderGeometry( height, height, 2, 3 );
+              var mesh  = new THREE.Mesh(mgeometry, mmaterial);
               mesh.position.x = (distance * i) + xOffset;
               mesh.position.z = -400;
               mesh.rotation.z +=1.57;
-              height +=0.97;
+              height -=0.97;
               distance +=0.1;
               spiralGroup.add(mesh);
       }
@@ -188,12 +188,12 @@ function createSpiral(){
   mesh.position.z = -400;
   goldMesh.position.z = -400;
   woodMesh.position.z = -400;
-  woodMesh.position.x =-6;
+  woodMesh.position.x =-30;
   woodMesh.rotation.z = 1.58;
   goldMesh.position.x = 4;
   stoneMesh.position.z = -400;
   bStoneMesh.position.z = -400;
-
+  bStoneMesh.rotation.x = 1.1;
   stoneMesh.rotation.x +=2.9;
   bStoneMesh.rotation.y +=1.6;
   bStoneMesh.position.x = 4;
@@ -221,7 +221,7 @@ function render() {
 
   bStoneMesh.rotation.x += 0.001; //Continuously rotate the mesh
   goldMesh.rotation.x += 0.001; //Continuously rotate the mesh
-  woodMesh.rotation.x -=0.02;
+  woodMesh.rotation.x -=0.002;
   // mesh.rotation.y += 0.01;
 
   // Render the scene
