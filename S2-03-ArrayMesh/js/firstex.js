@@ -28,17 +28,17 @@ function init() {
   cubes = [];
 
   //Create a two dimensional grid of objects, and position them accordingly
-  for (var x = -30; x <= 30; x += 3) { // Start from -45 and sequentially add one every 5 pixels
-    for (var y = -20; y <= 20; y += 10) {
+  for (var x = -15; x <= 15; x += 10) { // Start from -45 and sequentially add one every 5 pixels
+    for (var y = -13; y <= 13; y += 10) {
       var boxGeometry = new THREE.BoxGeometry(3, 6, 3);
       //The color of the material is assigned a random color
       var boxMaterial = new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
       var box = new THREE.Mesh(boxGeometry, boxMaterial);
 
       //box.castShadow = true;
-      // box.rotation.x = Math.random() *0.2*Math.PI;
-      // box.rotation.y = Math.random() *2.9*Math.PI;
-      // box.rotation.z = Math.random() *0.9*Math.PI;
+      box.rotation.x = Math.random() *0.2*Math.PI;
+      box.rotation.y = Math.random() *2.9*Math.PI;
+      box.rotation.z = Math.random() *0.9*Math.PI;
       box.position.x = x;
       box.position.z = y;
       box.scale.y = 0.5;
@@ -46,7 +46,6 @@ function init() {
       scene.add(box);
       cubes.push(box);
     }
-    box.rotation.x = 0.9;
   }
 
   document.body.appendChild(renderer.domElement);
@@ -58,8 +57,12 @@ function drawFrame(){
 
   let factor = 8;
   for(let i=0; i<cubes.length; i++){
-    cubes[i].rotation.x += 0.009*Math.PI;
-
+    setTimeout(()=> {
+    i % factor === 0 ? cubes[i].rotation.x += Math.random() * 0.2 :cubes[i].rotation.y += Math.random() * 0.2 ;
+    if(i === 2){
+      factor = Math.floor(Math.random * 10);
+    }
+  }, Math.random()* 3000);
 
   }
 
