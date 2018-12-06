@@ -2,20 +2,20 @@ var config = {
     frequenz: 0.7, //1.4 for wobble waves 0.2 for sublte rings 0.1 for extreme rings
     speed: 120, // + slower
     radius: 28,
-    widthSeg:100, //resolution x
+    widthSeg: 100, //resolution x
     heightSeg: 100, // resolution y
-    magnitude:8,
+    magnitude: 8,
     waveDepth: 0.01
 };
 
-var renderer, scene, camera,warpVector,orientationCylinder,extrudePath,
-    frequencyData, audio, analyser, plane, curveObject, geometry, material, points,pipeSpline, direction
+var renderer, scene, camera, warpVector, orientationCylinder, extrudePath,
+    frequencyData, audio, analyser, plane, curveObject, geometry, material, points, pipeSpline, direction
 ;
 
 var time = 0;
 var lastPoint = 0;
 var frequencyCounter = 0;
-const planeVertices = 64; //128
+const planeVertices = 32; //128
 // var counter=-200;
 var counter = -10; //-70
 var group = new THREE.Object3D();
@@ -28,9 +28,9 @@ function init() {
     camera = new THREE.PerspectiveCamera(45, W / H, .1, 800);
     camera.position.set(0, 55, 85);
     camera.lookAt(scene.position);
-    var ambientLight = new THREE.AmbientLight(0xb3f442, 1.2);
+    var ambientLight = new THREE.AmbientLight(0xb3f442, 0.2);
     ambientLight.position.set(0, 200, 0);
-    var directionalLight = new THREE.PointLight(0xffffff, 1.9);
+    var directionalLight = new THREE.PointLight(0xffffff, 0.9);
     directionalLight.rotation.x = 90;
     directionalLight.position.set(0, 30, -20)
 
@@ -41,16 +41,15 @@ function init() {
     renderer.shadowMap.enabled = true;
 
 
-
     initializeAudio();
-    for (let i = 0; i < planeVertices/2; i++) {
+    for (let i = 0; i < planeVertices / 2; i++) {
         loadBasicSurface();
     }
     // createCurves();
 
     console.log(group.children[9])
     scene.add(group);
-    group.position.set(-90, 0, 100)
+    group.position.set(-45, 30, 100)
 
     document.body.appendChild(renderer.domElement);
 }
@@ -97,32 +96,33 @@ function init() {
 // }
 
 function GrannyKnot() {
-    pipeSpline = new THREE.CatmullRomCurve3( [
-        new THREE.Vector3( 0, -10, 0 ),
-        new THREE.Vector3( 0, -9,0 ),
-        new THREE.Vector3( 0, -7,0 ),
-        new THREE.Vector3( 0, -5,0 ),
-        new THREE.Vector3( 0, 0, 0 ),
-        new THREE.Vector3( 0, 5, 0),
-        new THREE.Vector3( 0, 7, 0),
-        new THREE.Vector3( 0, 10, 0 )
+    pipeSpline = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(0, -10, 0),
+        new THREE.Vector3(0, -9, 0),
+        new THREE.Vector3(0, -7, 0),
+        new THREE.Vector3(0, -5, 0),
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(0, 5, 0),
+        new THREE.Vector3(0, 7, 0),
+        new THREE.Vector3(0, 10, 0)
         // new THREE.Vector3( 0, 0, 40 )
-    ] );
+    ]);
 }
+
 function loadBasicSurface() {
 
     GrannyKnot();
     extrudePath = pipeSpline;
     var params = {
         scale: 10,
-        extrusionSegments: 50,
-        radiusSegments: 12,
+        extrusionSegments: 6,
+        radiusSegments: 6,
     };
-    var tubeGeometry = new THREE.TubeBufferGeometry( extrudePath, params.extrusionSegments, 2, params.radiusSegments );
-    tubeGeometry.vertices = pipeSpline.getPoints( 50 );
+    var tubeGeometry = new THREE.TubeBufferGeometry(extrudePath, params.extrusionSegments, 2, params.radiusSegments);
+    tubeGeometry.vertices = pipeSpline.getPoints(50);
 
     var material = new THREE.MeshPhongMaterial({
-        color: 0x2d2d2d,
+        color: 0x111111,
         // vertexColors: THREE.FaceColors,
         side: THREE.DoubleSide,
         specular: 0x2d2d2d,
@@ -148,29 +148,31 @@ function loadBasicSurface() {
     counter += 7;
 
 }
+
 function distortGeometry() {
     var width = 200 * 2 * Math.PI;
     // var geom = new THREE.CylinderGeometry(width, height, horizontalSegments, verticalSegments);
     var index = 0;//new THREE.CylinderGeometry( 4, 4, 200, 15,3 )
 
-    for(var i=0; i<=plane.geometry.vertices.length; i++) {
-            let t= 10;
-            var angle = t * 2.0 * Math.PI;
-/*
-  float angle = t * 2.0 * PI;
-  vec2 rot = vec2(cos(angle), sin(angle));
-  float z = t * 2.0 - 1.0;
- */
-            if(plane.geometry.vertices[index]){
+    for (var i = 0; i <= plane.geometry.vertices.length; i++) {
+        let t = 10;
+        var angle = t * 2.0 * Math.PI;
+        /*
+          float angle = t * 2.0 * PI;
+          vec2 rot = vec2(cos(angle), sin(angle));
+          float z = t * 2.0 - 1.0;
+         */
+        if (plane.geometry.vertices[index]) {
             // plane.geometry.vertices[index].z = t*2.0*Math.PI;
             plane.geometry.vertices[index].x = Math.cos(angle);
             // plane.geometry.vertices[index].y = Math.sin(angle);
             index++;
-            }
+        }
     }
 
     return plane;
 }
+
 function createCurves() {
     var curve = new THREE.CatmullRomCurve3([
         new THREE.Vector3(-10, 0, 10),
@@ -204,63 +206,50 @@ function mapAudioInformation() {
 
     for (let i = 0; i < planeVertices; i++) {
         if (frequencyData[i] > 0) {
-            group.children[i].scale.y = frequencyData[i] / 60;
+            group.children[i].scale.y = 2 * (frequencyData[i] / 100);//frequencyData[i] / 60
             group.children[i].scale.z = frequencyData[i] / 80;
             group.children[i].scale.x = frequencyData[i] / 120;
-            if(frequencyData[i] > 50){
-                let updateColor = new THREE.Color("rgb("+30+"%, "+80+"%, "+(frequencyData[i])+"%)");
+            // group.children[i].curve.points[6].x += frequencyData[i]/200;
+            if (frequencyData[i] > 50) {
+                let updateColor = new THREE.Color("rgb(" + 20 + "%, " + 20 + "%, " + 20 + "%)");//30 80
                 group.children[i].material.color = updateColor;
             }
-            if(frequencyData[i] > 100){
-                let updateColor = new THREE.Color("rgb("+0+"%, "+(frequencyData[i])+"%, "+(frequencyData[i])+"%)");
+            if (frequencyData[i] > 100) {
+                let updateColor = new THREE.Color("rgb(" + 40 + "%, " + 40 + "%, " + 40 + "%)");//30 80
                 group.children[i].material.color = updateColor;
             }
-            if(frequencyData[i] > 200){
-                let updateColor = new THREE.Color("rgb("+90+"%, "+80+"%, "+190+"%)");
+            if (frequencyData[i] > 200) {
+                let updateColor = new THREE.Color("rgb(" + 60 + "%, " + 60 + "%, " + 60 + "%)");
                 group.children[i].material.color = updateColor;
             }
         }
 
     }
 
-    for (let i = 0; i < group.children.length; i++) {
-       // group.children[i].scale.y = Math.cos(ts/190000*Math.PI + group.children[i].position.y*frequencyData[i]/35000 + group.children[i].position.y/10) + 1;
-    }
-    let countBeats=0;
-    for (var i = 0, l = group.children.length; i < l; i++) {
+    let countBeats = 0;
+    for (var i = 0; i < group.children.length; i++) {
         var curveLine = group.children[i];
 
+        curveLine.curve.points[0].x = (frequencyData[i - 1] / 80);
+        curveLine.curve.points[1].x = (frequencyData[i - 2] / 80);
+        curveLine.curve.points[2].x = (frequencyData[i - 3] / 80);
+        curveLine.curve.points[3].x = (frequencyData[i - 4] / 80);
+        curveLine.curve.points[4].x = (frequencyData[i - 4] / 80);
 
-            (frequencyCounter === 16) ? direction = 1 : direction = -1;
-            (frequencyCounter === 16) ? frequencyCounter= 0 : frequencyCounter=frequencyCounter;
-        // (frequencyCounter === 16) ? console.log("change 1") : console.log("change to negative -1");
-            curveLine.curve.points[0].x += (frequencyData[i]/800)*direction;
-            curveLine.curve.points[1].x += (frequencyData[i-1]/800)*direction;
-            curveLine.curve.points[2].x += (frequencyData[i-2]/800)*direction;
-            curveLine.curve.points[3].x += (frequencyData[i-3]/800)*direction;
-            curveLine.curve.points[4].x += (frequencyData[i-4]/800)*direction;
-        // console.log(frequencyCounter)
-            frequencyCounter++;
-
-
-        if(frequencyData[i]> 100){
-            // curveLine.curve.points[1].x = frequencyData[i];
-        }
-        curveLine.geometry.vertices = curveLine.curve.getPoints( 10 );
+        frequencyCounter++;
+        curveLine.geometry.vertices = curveLine.curve.getPoints(10);
         curveLine.geometry.verticesNeedUpdate = true;
-        if(frequencyData[0]> 100) {
-            setTimeout(function(){
-                group.children[i].geometry = new THREE.TubeBufferGeometry(extrudePath, 12, 2, 20);
-            },1/30);
+        if (frequencyData[0] > 10 && group.children[i]) {
+            // setTimeout(function(){
+            group.children[i].geometry = new THREE.TubeBufferGeometry(extrudePath, 12, 2, 20);
+            // },0.000004);
         }
+        group.children[i].geometry.computeVertexNormals();
+        group.children[i].geometry.computeFaceNormals();
+        group.children[i].geometry.verticesNeedUpdate = true;
     }
 
-    group.children[0].geometry.computeVertexNormals();
-    group.children[0].geometry.computeFaceNormals();
-    group.children[0].geometry.verticesNeedUpdate = true;
     time++;
-
-
 
 
 }
@@ -282,7 +271,10 @@ function initializeAudio() {
 
 
 function drawFrame(ts) {
-    requestAnimationFrame(drawFrame);
+    setTimeout(function () {
+        requestAnimationFrame(drawFrame);
+    }, 1 / 20);
+
     renderer.render(scene, camera);
     var bufferLength = analyser.frequencyBinCount;
     frequencyData = new Uint8Array(bufferLength);
