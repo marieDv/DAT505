@@ -58,8 +58,6 @@ function addComposer(){
 
     var passOne = new THREE.ShaderPass(THREE.FocusShader);
     composer.addPass(passOne);
-    // passOne.uniforms.fstop = 1;
-    // passOne.uniforms.maxblur = 1;
     renderPass.renderToScreen = true;
 //https://threejs.org/examples/webgl_postprocessing_dof2.html
 }
@@ -84,8 +82,8 @@ function loadBasicSurface() {
     extrudePath = pipeSpline;
     var params = {
         scale: 10,
-        extrusionSegments: 6,
-        radiusSegments: 6,
+        extrusionSegments: 1,
+        radiusSegments: 1,
     };
     var tubeGeometry = new THREE.TubeBufferGeometry(extrudePath, params.extrusionSegments, 2, params.radiusSegments);
     tubeGeometry.vertices = pipeSpline.getPoints(50);
@@ -96,6 +94,7 @@ function loadBasicSurface() {
         side: THREE.DoubleSide,
         specular: 0x2d2d2d,
         shininess: 100,
+        // wireframe: true,
         wireframeLinewidth: 1,
     });
     plane = new THREE.Mesh(tubeGeometry, material);//150, 300, Math.PI/2, Math.PI, 25, 25
