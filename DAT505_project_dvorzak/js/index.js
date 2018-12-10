@@ -2,6 +2,13 @@ var renderer, scene, camera, warpVector, extrudePath,
     frequencyData, audio, analyser, plane, geometry, material, points, pipeSpline, direction,composer,renderPass
 ;
 
+//shader related variables
+var occlusionComposer, occlusionRenderTarget, occlusionBox, lightSphere,
+
+    angle = 0,
+    DEFAULT_LAYER = 0,
+    OCCLUSION_LAYER = 1;
+
 var time = 0;
 var frequencyCounter = 0;
 const planeVertices = 32; //128
@@ -41,7 +48,7 @@ function init() {
     renderer.setSize(W, H);
     renderer.shadowMap.enabled = true;
 
-
+    addShaderLights();
     initializeAudio();
     for (let i = 0; i < planeVertices / 2; i++) {
         loadBasicSurface();
@@ -51,30 +58,33 @@ function init() {
     document.body.appendChild(renderer.domElement);
     addComposer();
 }
-function addComposer(){
-    composer =new THREE.EffectComposer(renderer);
-    renderPass = new THREE.RenderPass(scene, camera);
-    composer.addPass(renderPass);
 
-    var passOne = new THREE.ShaderPass(THREE.FocusShader);
-    composer.addPass(passOne);
-    renderPass.renderToScreen = true;
-//https://threejs.org/examples/webgl_postprocessing_dof2.html
+function addShaderLights(){
+    let shaderGeometry = new THREE.BoxGeometry( 260,80, 16 );
+    let shaderMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+    lightSphere = new THREE.Mesh( shaderGeometry, shaderMaterial );
+    lightSphere.position.set(0, -200, -300);
+    lightSphere.rotation.x +=1.9;
+    lightSphere.layers.set( OCCLUSION_LAYER ); //TODO: blend in
+    scene.add( lightSphere );
 }
+function addShaderBoxes(geometry){
+    let material = new THREE.MeshBasicMaterial( { color:0xa2a2a2 } );
+    var geom =  new THREE.SphereBufferGeometry( 5, 16, 16 );
+    occlusionBox = new THREE.Mesh( geom, material);
+    occlusionBox.position.z = 2;
+    // occlusionBox.layers.set( OCCLUSION_LAYER );
+    occlusionBox.position.set(counter, -120, -200);
+    scene.add( occlusionBox );
 
-
-function GrannyKnot() {
-    pipeSpline = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(0, -10, 0),
-        new THREE.Vector3(0, -9, 0),
-        new THREE.Vector3(0, -7, 0),
-        new THREE.Vector3(0, -5, 0),
-        new THREE.Vector3(0, 0, 0),
-        new THREE.Vector3(0, 5, 0),
-        new THREE.Vector3(0, 7, 0),
-        new THREE.Vector3(0, 10, 0)
-        // new THREE.Vector3( 0, 0, 40 )
-    ]);
+    occlusionBox.curve = pipeSpline;
+    occlusionBox.rotation.x += 2.9; //2.5 flach 1.5 winkel 1 flach horizontal
+    occlusionBox.position.set(counter, -100, -200);
+    occlusionBox.receiveShadow = true;
+    occlusionBox.castShadow = true;
+    occlusionBox.geometry.dynamic = true;
+    occlusionBox.material.needsUpdate = true;
+    occlusionBox.geometry.colorsNeedUpdate = true;
 }
 function loadBasicSurface() {
 
@@ -90,31 +100,59 @@ function loadBasicSurface() {
 
     var material = new THREE.MeshLambertMaterial({
         color: 0x111111,
-        // vertexColors: THREE.FaceColors,
         side: THREE.DoubleSide,
         specular: 0x2d2d2d,
-        shininess: 100,
-        // wireframe: true,
         wireframeLinewidth: 1,
     });
     plane = new THREE.Mesh(tubeGeometry, material);//150, 300, Math.PI/2, Math.PI, 25, 25
+
+    // addShaderBoxes(tubeGeometry)
     plane.curve = pipeSpline;
     plane.rotation.x += 2.9; //2.5 flach 1.5 winkel 1 flach horizontal
     plane.position.set(counter, -100, -200);
     plane.receiveShadow = true;
-    plane.sortParticles = true;
     plane.castShadow = true;
+    plane.layers.set( OCCLUSION_LAYER );
     plane.geometry.dynamic = true;
-    // plane.geometry.attributes.color.needsUpdate = true;
-
     plane.material.needsUpdate = true;
     plane.geometry.colorsNeedUpdate = true;
-    // plane.geometry.attributes.color.needsUpdate = true;
 
-    warpVector = new THREE.Vector3(0, 50, 0); //50
     group.add(plane);
     counter += 7;
 
+}
+function addComposer(){
+    var pass,
+        occlusionRenderTarget = new THREE.WebGLRenderTarget( window.innerWidth * 0.5, window.innerHeight * 0.5 );
+    occlusionComposer = new THREE.EffectComposer( renderer, occlusionRenderTarget);
+    occlusionComposer.addPass( new THREE.RenderPass( scene, camera ) );
+    pass = new THREE.ShaderPass( THREE.VolumetericLightShader );
+    // pass.uniforms.exposure.value = 0.1;//decay density weight
+    pass.uniforms.weight.value = 0.2;
+
+    // pass.uniforms['exposure'].value = 0.2;
+    pass.needsSwap = false;
+    occlusionComposer.addPass( pass );
+
+    composer = new THREE.EffectComposer( renderer );
+    composer.addPass( new THREE.RenderPass( scene, camera ) );
+    pass = new THREE.ShaderPass( THREE.AdditiveBlendingShader );
+    pass.uniforms.tAdd.value = occlusionRenderTarget.texture;
+    composer.addPass( pass );
+    pass.renderToScreen = true;
+}
+function GrannyKnot() {
+    pipeSpline = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(0, -10, 0),
+        new THREE.Vector3(0, -9, 0),
+        new THREE.Vector3(0, -7, 0),
+        new THREE.Vector3(0, -5, 0),
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(0, 5, 0),
+        new THREE.Vector3(0, 7, 0),
+        new THREE.Vector3(0, 10, 0)
+        // new THREE.Vector3( 0, 0, 40 )
+    ]);
 }
 function mapAudioInformation() {
 
@@ -186,9 +224,17 @@ function initializeAudio() {
 function drawFrame(ts) {
     setTimeout(function () {
         requestAnimationFrame(drawFrame);
-    }, 1 / 20);
+    }, 1 / 40);
 
-    composer.render(scene, camera);
+    camera.layers.set(OCCLUSION_LAYER);
+    renderer.setClearColor(0x000000);
+    occlusionComposer.render();
+
+    camera.layers.set(DEFAULT_LAYER);
+    renderer.setClearColor(0x090611);
+    composer.render();
+
+
     var bufferLength = analyser.frequencyBinCount;
     frequencyData = new Uint8Array(bufferLength);
     void analyser.getByteFrequencyData(frequencyData);
@@ -200,6 +246,7 @@ function drawFrame(ts) {
 //beziercurves
 // group.children[i].geometry.computeVertexNormals();
 //interpolation
-
+//effect.uniforms['amount'].value = true;
+// occlusionBox.position.copy(box.position);
 init();
 drawFrame();
