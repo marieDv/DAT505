@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,600,700|Playfair+Display:400,400i,700i');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,4 +7,105 @@
 
 canvas {
   display: block;
+}
+
+#playbutton {
+  position: absolute;
+  margin: auto;
+  /*border: 2px solid white;*/
+  background: none;
+  top: 48%;
+  right: 0;
+  left: 48vw;
+  color: white;
+  padding:9px;
+
+}
+#lyrics {
+  color: #fff;
+  display: none;
+}
+#animatedLyrics {
+  color: #fff;
+  position: absolute;
+}
+.line{
+  visibility: hidden;
+  position: absolute;
+  margin-top: 47vh;
+  margin-left: 47vh;
+  filter: blur(0.2px);
+  color: #ffeb53;
+  /*text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #49ff18;*/
+}
+
+#addInfo{
+  position: fixed;
+  top:1.7em;
+  left:1em;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.text-md{
+   font-family: "Open Sans", sans-serif;
+   color: white;
+   letter-spacing:6px;
+   font-size:0.8rem;
+   text-transform: uppercase;
+ }
+.text-sm{
+  font-family: "Playfair Display", serif;
+  color: white;
+  letter-spacing:2px;
+  font-size:0.5rem;
+  text-transform: lowercase;
+  font-style: italic;
+  display: block;
+}
+#rectangle {
+  width:15px;
+  height:15px;
+  border:1.5px solid white;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.hexagon {
+  position: relative;
+  width: 47px;
+  height: 27.14px;
+  background-color: #f8fffa;
+  margin: 13.57px 0;
+  border-left: solid 2px #ffffff;
+  border-right: solid 2px #ffffff;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 33.23px;
+  height: 33.23px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 3.8830px;
+}
+
+.hexagon:before {
+  top: -16.6170px;
+  border-top: solid 4.2426px #ffffff;
+  border-right: solid 4.2426px #ffffff;
+}
+
+.hexagon:after {
+  bottom: -16.6170px;
+  border-bottom: solid 4.2426px #ffffff;
+  border-left: solid 4.2426px #ffffff;
 }
