@@ -12,9 +12,11 @@
             margin: 0;
 
         }
-html{
-    background-color: #000;
-}
+
+        html {
+            background-color: #000;
+        }
+
         canvas {
             width: 100%;
             height: 100%
@@ -27,15 +29,15 @@ html{
 
 <!--<pre><code data-language="javascript">// Load multiple ShaderFrog shaders-->
 <!--runtime.load([-->
-    <!--'Pearlish.json',-->
+<!--'Pearlish.json',-->
 <!--], function( shaders ) {-->
 
 <!--});</code></pre>-->
 <div id="addInfo">
     <div id="rectangle"></div>
     <div style="width:70%;display: inline;margin-left: 10px;">
-    <span class="text-md">Angèle</span>
-    <span class="text-sm">mariedvorzak.at</span>
+        <span class="text-md">Angèle</span>
+        <span class="text-sm">mariedvorzak.at</span>
     </div>
 </div>
 
@@ -60,11 +62,24 @@ html{
     Moi je
 </p>
 <p id="animatedLyrics"></p>
-
-<p class="text-md"></p>
-<button id="playbutton" class="text-sm hexagon">start</button>
-<audio id="audioFile" src="audio/tareine.m4r"></audio>
+<div id="introBox">
+    <p class="text-md">
+        <span>Ta Reine</span>
+    </p>
+    <button id="playbutton" class="text-sm">
+        <img class="svg" src="./img/octagon.png" alt="octagon">
+        enter
+    </button>
+    <div style="margin-top: 30px;">
+    <button id="left">left</button>
+    <button id="right">right</button>
+    </div>
+</div>
+<audio controls id="audioFileOne" src="audio/tareine.m4r"></audio>
+<audio controls id="audioFileTwo" src="audio/basicspace.mp3"></audio>
 <script src="build/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
 
 <!--<script src="js/shaderfrog-runtime.min.js"></script>-->
 <script src="js/EffectComposer.js"></script>

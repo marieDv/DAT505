@@ -11,6 +11,8 @@ var occlusionComposer, occlusionRenderTarget, occlusionBox, lightSphere,
     OCCLUSION_LAYER = 1;
 
 var time = 0;
+var cRot = 0.3;
+var tRot = 0.8;
 var frequencyCounter = 0;
 const planeVertices = 32; //128
 var counter = -10; //-70
@@ -18,7 +20,16 @@ var creationCounter = 0;
 var group = new THREE.Object3D();
 var shadowGroup = new THREE.Object3D();
 
+
+function changeSong(){
+    console.log("left")
+    let temp = camera.rotation.y;
+    TweenMax.to(camera.rotation, 2, {y:temp+2});
+
+
+}
 function init() {
+    window.addEventListener( 'resize', onWindowResize, false );
 
     scene = new THREE.Scene();
     var W = window.innerWidth,
@@ -64,6 +75,7 @@ function init() {
     document.body.appendChild(renderer.domElement);
     addComposer();
     createLyrics();
+    document.getElementById('left').addEventListener('click', changeSong);
 }
 function addShaderLights() {
     // let shaderGeometry = new THREE.SphereGeometry(200, 80, 16);
@@ -180,7 +192,6 @@ function createLines() {
         // new THREE.Vector3( 0, 0, 40 )
     ]);
 }
-
 function createLyrics(){
     let templyrics = document.getElementById("lyrics");
     lyrics = templyrics.innerHTML.split(" ");
@@ -201,7 +212,7 @@ function mapLyrics(fd, i, child){
         word[countWords].style.left = (child.scale.z*100*Math.random()) +"px";
         word[countWords].style.fontSize = Math.random() * (5 - 1)+1+"rem";
         word[countWords].style.visibility = "visible";
-        word[countWords].className += " toRemove";
+        word[countWords].className += " toRemove text-md";
         countWords++;
         setTimeout(function(){
             // word[countWords].style.visibility = "hidden";
@@ -214,6 +225,41 @@ function mapLyrics(fd, i, child){
         },1500)
 
 }
+
+
+function colorChange(frequencyData, i){
+
+    if (frequencyData[i] > 20 && frequencyData[i] < 100) { //bass
+        let updateColor = new THREE.Color("rgb(" + 255 + "%, " + 230 + "%, " + 50 + "%)");//30 80
+        group.children[i].material.color = updateColor;
+    }
+    if (frequencyData[i] > 85 && frequencyData[i] < 90) { //bass
+        let updateColor = new THREE.Color("rgb(" + 100 + "%, " + 255 + "%, " + 0 + "%)");//30 80
+        group.children[i].material.color = updateColor;
+        if(!wait){
+            wait = true;
+            mapLyrics(frequencyData[i], i, group.children[i]);
+        }else{
+            setTimeout(()=> {
+                wait = false;
+            },2000);
+        }
+    }
+    if (frequencyData[i] > 190 && frequencyData[i] < 240) { //SNARE
+        let updateColor = new THREE.Color("rgb(" + 0 + "%, " + 30 + "%, " + 150 + "%)");//30 80
+        group.children[i].material.color = updateColor;
+    }
+    if (frequencyData[i] > 240 && frequencyData[i] < 440) { //SNARE
+        let updateColor = new THREE.Color("rgb(" + 70 + "%, " + 0 + "%, " + 180 + "%)");//30 80
+        group.children[i].material.color = updateColor;
+    }
+    if (frequencyData[i] > 400) {
+        let updateColor = new THREE.Color("rgb(" + 50 + "%, " + 50 + "%, " + 60 + "%)");
+        group.children[i].material.color = updateColor;
+    }
+}
+
+
 function mapAudioInformation() {
 
     for (let i = 0; i < planeVertices; i++) {
@@ -231,36 +277,8 @@ function mapAudioInformation() {
             } else {
                 lightSphere.scale.y = frequencyData[10] / 20;
             }
+            colorChange(frequencyData, i);
 
-            if (frequencyData[i] > 20 && frequencyData[i] < 100) { //bass
-                let updateColor = new THREE.Color("rgb(" + 255 + "%, " + 230 + "%, " + 50 + "%)");//30 80
-                group.children[i].material.color = updateColor;
-            }
-            if (frequencyData[i] > 85 && frequencyData[i] < 90) { //bass
-                let updateColor = new THREE.Color("rgb(" + 100 + "%, " + 255 + "%, " + 0 + "%)");//30 80
-                group.children[i].material.color = updateColor;
-                if(!wait){
-                    wait = true;
-                    mapLyrics(frequencyData[i], i, group.children[i]);
-                }else{
-                    setTimeout(()=> {
-                      wait = false;
-                    },2000);
-                }
-
-            }
-            if (frequencyData[i] > 190 && frequencyData[i] < 240) { //SNARE
-                let updateColor = new THREE.Color("rgb(" + 0 + "%, " + 30 + "%, " + 150 + "%)");//30 80
-                group.children[i].material.color = updateColor;
-            }
-            if (frequencyData[i] > 240 && frequencyData[i] < 440) { //SNARE
-                let updateColor = new THREE.Color("rgb(" + 70 + "%, " + 0 + "%, " + 180 + "%)");//30 80
-                group.children[i].material.color = updateColor;
-            }
-            if (frequencyData[i] > 400) {
-                let updateColor = new THREE.Color("rgb(" + 50 + "%, " + 50 + "%, " + 60 + "%)");
-                group.children[i].material.color = updateColor;
-            }
         }
 
     }
@@ -294,7 +312,7 @@ function mapAudioInformation() {
 
 function initializeAudio() {
     var ctx = new AudioContext();
-    audio = document.getElementById("audioFile");
+    audio = document.getElementById("audioFileOne");
     var audioSrc = ctx.createMediaElementSource(audio);
     analyser = ctx.createAnalyser();
     analyser.fftSize = planeVertices;
@@ -303,12 +321,11 @@ function initializeAudio() {
     document.getElementById("playbutton").addEventListener('click', function () {
         audio.play();
         startedAudio = true;
-        this.style.visibility ="hidden";
+        document.getElementById("introBox").style.visibility ="hidden";
     });
 
 
 }
-
 function drawFrame(ts) {
     setTimeout(function () {
         requestAnimationFrame(drawFrame);
@@ -321,16 +338,53 @@ function drawFrame(ts) {
     camera.layers.set(DEFAULT_LAYER);
     renderer.setClearColor("#050505");
     composer.render();
+// camera.position.x +=0.002;
+
 
 
     var bufferLength = analyser.frequencyBinCount;
     frequencyData = new Uint8Array(bufferLength);
     void analyser.getByteFrequencyData(frequencyData);
     if (startedAudio) {
+        animateCamera();
+        wakov();
         mapAudioInformation(ts);
     }
 }
+function animateCamera(){
+    if(tRot > 1.5){
+        camera.position.z += 0.05*cRot;//85
+        camera.rotation.y += 0.0002*cRot;
+    }else{
+        camera.rotation.y -= 0.00008*cRot;
+        camera.position.z -= 0.009*cRot;//85
+    }
 
+    // camera.position.y -= 0.2;
+
+}
+
+
+//HELPER FUNCTIONS
+function wakov(){
+    if(Math.floor(Math.random()< 0.01)){
+        if(tRot > 1.5){
+            tRot = 0.3;
+        }else{
+            tRot += Math.floor(Math.random() * .1) + 0.25;
+
+        }
+    }
+    cRot+=(tRot-cRot)/100;
+}
+function onWindowResize(){
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+}
 //TODO:
 //getByTimeDomainData() -> WAVEFORM
 //beziercurves

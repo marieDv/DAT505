@@ -8,17 +8,20 @@
 canvas {
   display: block;
 }
-
-#playbutton {
+#introBox{
   position: absolute;
   margin: auto;
-  /*border: 2px solid white;*/
-  background: none;
   top: 48%;
   right: 0;
   left: 48vw;
+}
+#playbutton {
+
+  border: none;
+  background: none;
   color: white;
   padding:9px;
+  cursor: pointer;
 
 }
 #lyrics {
@@ -74,38 +77,28 @@ canvas {
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.hexagon {
-  position: relative;
-  width: 47px;
-  height: 27.14px;
-  background-color: #f8fffa;
-  margin: 13.57px 0;
-  border-left: solid 2px #ffffff;
-  border-right: solid 2px #ffffff;
-}
 
-.hexagon:before,
-.hexagon:after {
-  content: "";
+.svg {
+  width: 57px;
   position: absolute;
-  z-index: 1;
-  width: 33.23px;
-  height: 33.23px;
-  -webkit-transform: scaleY(0.5774) rotate(-45deg);
-  -ms-transform: scaleY(0.5774) rotate(-45deg);
-  transform: scaleY(0.5774) rotate(-45deg);
-  background-color: inherit;
-  left: 3.8830px;
+  margin-top: -20px;
+  margin-left: -16px;
 }
 
-.hexagon:before {
-  top: -16.6170px;
-  border-top: solid 4.2426px #ffffff;
-  border-right: solid 4.2426px #ffffff;
-}
 
-.hexagon:after {
-  bottom: -16.6170px;
-  border-bottom: solid 4.2426px #ffffff;
-  border-left: solid 4.2426px #ffffff;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
