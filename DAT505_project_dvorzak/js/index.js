@@ -1,6 +1,8 @@
 var renderer, scene, camera, warpVector, extrudePath,
     frequencyData, audio, analyser, plane, geometry, material, points, pipeSpline, direction, composer,lyrics,tempWord,countWords=0
 ;
+
+var toggleSong = false;
 var startedAudio = false;
 var wait = false;
 //shader related variables
@@ -20,13 +22,21 @@ var creationCounter = 0;
 var group = new THREE.Object3D();
 var shadowGroup = new THREE.Object3D();
 
+var groupSec = new THREE.Object3D();
+var shadowGroupSec = new THREE.Object3D();
 
-function changeSong(){
-    console.log("left")
+function changeSong(direction){
+
     let temp = camera.rotation.y;
-    TweenMax.to(camera.rotation, 2, {y:temp+2});
-
-
+    let tempRot = camera.rotation.y;
+    direction === "right" ? toggleSong = true : toggleSong = false;
+    direction === "left" ? TweenMax.to(camera.position, 2, {x:temp-1}) : TweenMax.to(camera.position, 2, {x:temp+260});
+    direction === "left" ? TweenMax.to(camera.rotation, 2, {y:tempRot+0.001}) : TweenMax.to(camera.rotation, 2, {y:tempRot-0.003});
+    direction === "left" ? document.getElementById("left").style.visibility = "hidden" : document.getElementById("right").style.visibility = "hidden" ;
+    direction === "left" ? document.getElementById("right").style.visibility = "visible" : document.getElementById("left").style.visibility = "visible" ;
+    direction === "left" ? document.getElementById("songTitle").innerHTML = "Ta Reine" : document.getElementById("songTitle").innerHTML = "Tout oblier";
+        console.log(toggleSong)
+    initializeAudio();
 }
 function init() {
     window.addEventListener( 'resize', onWindowResize, false );
@@ -66,17 +76,30 @@ function init() {
     addShaderLights();
     initializeAudio();
     for (let i = 0; i < planeVertices / 2; i++) {
-        loadBasicSurface();
+        loadBasicSurface(group, shadowGroup);
     }
+    for (let i = 0; i < planeVertices / 2; i++) {
+        loadBasicSurface(groupSec, shadowGroupSec);
+    }
+    scene.add(groupSec);
+    scene.add(shadowGroupSec);
+
+    groupSec.position.set(90, 40, 130);
+    shadowGroupSec.position.set(90, 40, 130);
+
     scene.add(group);
     scene.add(shadowGroup);
+
     group.position.set(-45, 30, 100)
     shadowGroup.position.set(-45, 30, 100)
     document.body.appendChild(renderer.domElement);
     addComposer();
     createLyrics();
-    document.getElementById('left').addEventListener('click', changeSong);
+    document.getElementById('left').addEventListener('click', function(){changeSong("left")}, false);
+    document.getElementById('right').addEventListener('click', function(){changeSong("right")}, false);
 }
+
+
 function addShaderLights() {
     // let shaderGeometry = new THREE.SphereGeometry(200, 80, 16);
     let shaderGeometry = new THREE.SphereGeometry(20, 80, 16);
@@ -89,7 +112,7 @@ function addShaderLights() {
 
     // scene.add(lightSphere);
 }
-function loadBasicSurface() {
+function loadBasicSurface(group, shadowGroup) {
 
     createLines();
     extrudePath = pipeSpline;
@@ -117,12 +140,10 @@ function loadBasicSurface() {
 
     var plane = new THREE.Mesh(tubeGeometry, material);//150, 300, Math.PI/2, Math.PI, 25, 25
     var copyMesh = new THREE.Mesh(geom, shadowMaterial);//150, 300, Math.PI/2, Math.PI, 25, 25
-    // addShaderBoxes(tubeGeometry)
 
     setupCopy(plane);
     setupCopy(copyMesh);
     copyMesh.layers.set(OCCLUSION_LAYER);
-    // plane.layers.set( OCCLUSION_LAYER );
     shadowGroup.add(copyMesh);
     group.add(plane);
     counter += 8;
@@ -225,16 +246,14 @@ function mapLyrics(fd, i, child){
         },1500)
 
 }
-
-
 function colorChange(frequencyData, i){
 
-    if (frequencyData[i] > 20 && frequencyData[i] < 100) { //bass
-        let updateColor = new THREE.Color("rgb(" + 255 + "%, " + 230 + "%, " + 50 + "%)");//30 80
+    if (frequencyData[i] > 20 && frequencyData[i] < 100) { //middletones
+        let updateColor = new THREE.Color("rgb(" + 40 + "%, " + 40 + "%, " + 40 + "%)");//30 80
         group.children[i].material.color = updateColor;
     }
-    if (frequencyData[i] > 85 && frequencyData[i] < 90) { //bass
-        let updateColor = new THREE.Color("rgb(" + 100 + "%, " + 255 + "%, " + 0 + "%)");//30 80
+    if (frequencyData[i] > 85 && frequencyData[i] < 90) { //female lead
+        let updateColor = new THREE.Color("rgb(" + 180 + "%, " + 180 + "%, " + 180 + "%)");//30 80
         group.children[i].material.color = updateColor;
         if(!wait){
             wait = true;
@@ -245,12 +264,12 @@ function colorChange(frequencyData, i){
             },2000);
         }
     }
-    if (frequencyData[i] > 190 && frequencyData[i] < 240) { //SNARE
-        let updateColor = new THREE.Color("rgb(" + 0 + "%, " + 30 + "%, " + 150 + "%)");//30 80
+    if (frequencyData[i] > 190 && frequencyData[i] < 240) { //bass
+        let updateColor = new THREE.Color("rgb(" + 20 + "%, " + 20 + "%, " + 20 + "%)");//30 80
         group.children[i].material.color = updateColor;
     }
     if (frequencyData[i] > 240 && frequencyData[i] < 440) { //SNARE
-        let updateColor = new THREE.Color("rgb(" + 70 + "%, " + 0 + "%, " + 180 + "%)");//30 80
+        let updateColor = new THREE.Color("rgb(" + 50 + "%, " + 50 + "%, " + 50 + "%)");//30 80
         group.children[i].material.color = updateColor;
     }
     if (frequencyData[i] > 400) {
@@ -258,9 +277,7 @@ function colorChange(frequencyData, i){
         group.children[i].material.color = updateColor;
     }
 }
-
-
-function mapAudioInformation() {
+function mapAudioInformation(group, shadowGroup) {
 
     for (let i = 0; i < planeVertices; i++) {
         if (frequencyData[i] > 0) {
@@ -309,9 +326,10 @@ function mapAudioInformation() {
 
 
 }
-
 function initializeAudio() {
     var ctx = new AudioContext();
+    // toggleSong === false ? audio = document.getElementById("audioFileOne").src  : audio = document.getElementById("audioFileTwo").src ;
+    toggleSong === false ? document.getElementById("audioFileOne").src = "./audio/tareine.m4r"  : document.getElementById("audioFileOne").src = "./audio/afraid.m4a" ;
     audio = document.getElementById("audioFileOne");
     var audioSrc = ctx.createMediaElementSource(audio);
     analyser = ctx.createAnalyser();
@@ -321,7 +339,7 @@ function initializeAudio() {
     document.getElementById("playbutton").addEventListener('click', function () {
         audio.play();
         startedAudio = true;
-        document.getElementById("introBox").style.visibility ="hidden";
+        document.getElementById("introBox").style.display ="none";
     });
 
 
@@ -332,13 +350,11 @@ function drawFrame(ts) {
     }, 1 / 40);
 
     camera.layers.set(OCCLUSION_LAYER);
-    // renderer.setClearColor(0x000000);
     occlusionComposer.render();
 
     camera.layers.set(DEFAULT_LAYER);
     renderer.setClearColor("#050505");
     composer.render();
-// camera.position.x +=0.002;
 
 
 
@@ -348,7 +364,7 @@ function drawFrame(ts) {
     if (startedAudio) {
         animateCamera();
         wakov();
-        mapAudioInformation(ts);
+        toggleSong === false ? mapAudioInformation(group, shadowGroup) : mapAudioInformation(groupSec, shadowGroupSec);
     }
 }
 function animateCamera(){

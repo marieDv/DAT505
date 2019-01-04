@@ -15,6 +15,12 @@ canvas {
   right: 0;
   left: 48vw;
 }
+
+.intro__title {
+  top: -39px;
+  left: -20px;
+  position: absolute;
+}
 #playbutton {
 
   border: none;
