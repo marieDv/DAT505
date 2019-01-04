@@ -1,99 +1,134 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,600,700|Playfair+Display:400,400i,700i');
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 canvas {
-  display: block;
+    display: block;
 }
-#introBox{
-  position: absolute;
-  margin: auto;
-  top: 48%;
-  right: 0;
-  left: 48vw;
+
+#introBox {
+    position: absolute;
+    margin: auto;
+    top: 48%;
+    right: 0;
+    left: 48vw;
 }
 
 .intro__title {
-  top: -39px;
-  left: -20px;
-  position: absolute;
+    top: -39px;
+    left: -20px;
+    position: absolute;
 }
+
 #playbutton {
 
-  border: none;
-  background: none;
-  color: white;
-  padding:9px;
-  cursor: pointer;
+    border: none;
+    background: none;
+    color: white;
+    padding: 9px;
+    cursor: pointer;
 
 }
+
 #lyrics {
-  color: #fff;
-  display: none;
+    color: #fff;
+    display: none;
 }
+
 #animatedLyrics {
-  color: #fff;
-  position: absolute;
-}
-.line{
-  visibility: hidden;
-  position: absolute;
-  margin-top: 47vh;
-  margin-left: 47vh;
-  filter: blur(0.2px);
-  color: #ffeb53;
-  /*text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #49ff18;*/
+    color: #fff;
+    position: absolute;
 }
 
-#addInfo{
-  position: fixed;
-  top:1.7em;
-  left:1em;
-  color: #fff;
-  display: flex;
-  flex-wrap: wrap;
+.line {
+    visibility: hidden;
+    position: absolute;
+    margin-top: 47vh;
+    margin-left: 47vh;
+    filter: blur(0.2px);
+    color: #ffeb53;
+    /*text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 55px #fff, 0 0 75px #49ff18;*/
+}
+
+#addInfo {
+    position: fixed;
+    top: 1.7em;
+    left: 1em;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 35;
 
 }
-.text-md{
-   font-family: "Open Sans", sans-serif;
-   color: white;
-   letter-spacing:6px;
-   font-size:0.8rem;
-   text-transform: uppercase;
- }
-.text-sm{
-  font-family: "Playfair Display", serif;
-  color: white;
-  letter-spacing:2px;
-  font-size:0.5rem;
-  text-transform: lowercase;
-  font-style: italic;
-  display: block;
+
+.text-md {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    letter-spacing: 6px;
+    font-size: 0.8rem;
+    display: block;
+    text-transform: uppercase;
 }
+
+.headline-md {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 6px;
+    font-size: 3.8rem;
+    text-transform: uppercase;
+}
+
+.text-sm {
+    font-family: "Playfair Display", serif;
+    color: #6f6f6f;
+    letter-spacing: 3px;
+    font-size: 0.5rem;
+    text-transform: lowercase;
+    font-style: italic;
+    line-height: 1.4;
+    display: block;
+}
+
 #rectangle {
-  width:15px;
-  height:15px;
-  border:1.5px solid white;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid white;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .svg {
-  width: 57px;
-  position: absolute;
-  margin-top: -20px;
-  margin-left: -16px;
+    width: 57px;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -16px;
 }
 
+#greetings {
+    position: absolute;
+    top: 0;
+    height: 70vh;
+    background: #000000de;
+    z-index: 30;
+    padding: 30vh 27vw 0 27vw;
+}
 
-
-
+.center {
+    text-align: center;
+}
+#toggleBio {
+    margin-top: 34px;
+    cursor: pointer;
+    font-size: 0.5rem;
+    cursor: pointer;
+}
 
 
 

@@ -90,16 +90,21 @@ function init() {
     scene.add(group);
     scene.add(shadowGroup);
 
+
+
     group.position.set(-45, 30, 100)
     shadowGroup.position.set(-45, 30, 100)
     document.body.appendChild(renderer.domElement);
     addComposer();
     createLyrics();
+    document.getElementById('toggleBio').addEventListener('click', function(){toggleBio()}, false);
     document.getElementById('left').addEventListener('click', function(){changeSong("left")}, false);
     document.getElementById('right').addEventListener('click', function(){changeSong("right")}, false);
 }
 
-
+function toggleBio(){
+    document.getElementById("greetings").style.display = "none";
+}
 function addShaderLights() {
     // let shaderGeometry = new THREE.SphereGeometry(200, 80, 16);
     let shaderGeometry = new THREE.SphereGeometry(20, 80, 16);
