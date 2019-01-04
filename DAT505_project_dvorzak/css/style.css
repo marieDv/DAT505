@@ -130,7 +130,15 @@ canvas {
     cursor: pointer;
 }
 
+#toggleBack {
+    position: absolute;
+    bottom: 20vh;
+    border: inherit;
+    background: transparent;
+    bottom: 3vh;
+    left: 3vh;
 
+}
 
 
 

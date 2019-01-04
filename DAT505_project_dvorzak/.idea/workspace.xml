@@ -14,8 +14,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="39" column="109" lean-forward="false" selection-start-line="39" selection-start-column="109" selection-end-line="39" selection-end-column="109" />
+            <state relative-caret-position="251">
+              <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -25,29 +25,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="129" column="19" lean-forward="false" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
+            <state relative-caret-position="566">
+              <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="86" column="39" lean-forward="true" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+            <state relative-caret-position="197">
+              <caret line="109" column="61" lean-forward="false" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
               <folding>
+                <element signature="n#!!block;n#changeSong#0" expanded="false" />
+                <element signature="n#!!block;n#init#0" expanded="false" />
                 <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+                <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
                 <element signature="n#!!block;n#setupCopy#0" expanded="false" />
                 <element signature="n#!!block;n#addComposer#0" expanded="false" />
                 <element signature="n#!!block;n#createLines#0" expanded="false" />
                 <element signature="n#!!block;n#createLyrics#0" expanded="false" />
                 <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
                 <element signature="n#!!block;n#colorChange#0" expanded="false" />
+                <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
                 <element signature="n#!!block;n#animateCamera#0" expanded="false" />
                 <element signature="n#!!block;n#wakov#0" expanded="false" />
                 <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -107,8 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ta</find>
-      <find>posi</find>
       <find>shadowGrou</find>
       <find>plane</find>
       <find>155</find>
@@ -118,7 +120,6 @@
       <find>angele</find>
       <find>audioFile</find>
       <find>playbutton</find>
-      <find>enter</find>
       <find>render</find>
       <find>renderer</find>
       <find>re</find>
@@ -135,8 +136,11 @@
       <find>playbutt</find>
       <find>mariedvorzak</find>
       <find>introbo</find>
-      <find>addinfo</find>
+      <find>tout</find>
       <find>start</find>
+      <find>audio</find>
+      <find>enter</find>
+      <find>addinfo</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -158,9 +162,9 @@
         <option value="$PROJECT_DIR$/js/TexturePass.js" />
         <option value="$PROJECT_DIR$/js/ColorifyShader.js" />
         <option value="$PROJECT_DIR$/js/BloomPass.js" />
-        <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/js/index.js" />
       </list>
     </option>
   </component>
@@ -313,12 +317,12 @@
       <workItem from="1545426237758" duration="974000" />
       <workItem from="1545866454133" duration="464000" />
       <workItem from="1546120390169" duration="176000" />
-      <workItem from="1546189816466" duration="24085000" />
+      <workItem from="1546189816466" duration="24697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99316000" />
+    <option name="totallyTimeSpent" value="99928000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -400,13 +404,17 @@
         <state relative-caret-position="2040">
           <caret line="131" column="36" lean-forward="false" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -439,13 +447,17 @@
         <state relative-caret-position="1921">
           <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -478,13 +490,17 @@
         <state relative-caret-position="1343">
           <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -509,13 +525,17 @@
         <state relative-caret-position="2465">
           <caret line="145" column="38" lean-forward="false" selection-start-line="145" selection-start-column="38" selection-end-line="145" selection-end-column="38" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -568,13 +588,17 @@
         <state relative-caret-position="476">
           <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -599,13 +623,17 @@
         <state relative-caret-position="1105">
           <caret line="77" column="1" lean-forward="false" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -630,13 +658,17 @@
         <state relative-caret-position="1105">
           <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -668,13 +700,17 @@
         <state relative-caret-position="3094">
           <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -699,13 +735,17 @@
         <state relative-caret-position="1292">
           <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -737,13 +777,17 @@
         <state relative-caret-position="1309">
           <caret line="89" column="31" lean-forward="false" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -768,13 +812,17 @@
         <state relative-caret-position="561">
           <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
             <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
             <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
             <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -889,29 +937,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="86" column="39" lean-forward="true" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
-            <element signature="n#!!block;n#addComposer#0" expanded="false" />
-            <element signature="n#!!block;n#createLines#0" expanded="false" />
-            <element signature="n#!!block;n#createLyrics#0" expanded="false" />
-            <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
-            <element signature="n#!!block;n#colorChange#0" expanded="false" />
-            <element signature="n#!!block;n#animateCamera#0" expanded="false" />
-            <element signature="n#!!block;n#wakov#0" expanded="false" />
-            <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="39" column="109" lean-forward="false" selection-start-line="39" selection-start-column="109" selection-end-line="39" selection-end-column="109" />
+        <state relative-caret-position="251">
+          <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="13" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -922,9 +951,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="129" column="19" lean-forward="false" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
+        <state relative-caret-position="566">
+          <caret line="136" column="24" lean-forward="false" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="109" column="61" lean-forward="false" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
+          <folding>
+            <element signature="n#!!block;n#changeSong#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
+            <element signature="n#!!block;n#loadBasicSurface#0" expanded="false" />
+            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
+            <element signature="n#!!block;n#addComposer#0" expanded="false" />
+            <element signature="n#!!block;n#createLines#0" expanded="false" />
+            <element signature="n#!!block;n#createLyrics#0" expanded="false" />
+            <element signature="n#!!block;n#mapLyrics#0" expanded="false" />
+            <element signature="n#!!block;n#colorChange#0" expanded="false" />
+            <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
+            <element signature="n#!!block;n#animateCamera#0" expanded="false" />
+            <element signature="n#!!block;n#wakov#0" expanded="false" />
+            <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

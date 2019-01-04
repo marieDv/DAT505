@@ -35,6 +35,8 @@ function changeSong(direction){
     direction === "left" ? document.getElementById("left").style.visibility = "hidden" : document.getElementById("right").style.visibility = "hidden" ;
     direction === "left" ? document.getElementById("right").style.visibility = "visible" : document.getElementById("left").style.visibility = "visible" ;
     direction === "left" ? document.getElementById("songTitle").innerHTML = "Ta Reine" : document.getElementById("songTitle").innerHTML = "Tout oblier";
+    direction === "left" ? document.getElementById("songTitle").style.marginLeft = "-4px" : document.getElementById("songTitle").style.marginLeft = "-22px";
+
         console.log(toggleSong)
     initializeAudio();
 }
@@ -98,10 +100,15 @@ function init() {
     addComposer();
     createLyrics();
     document.getElementById('toggleBio').addEventListener('click', function(){toggleBio()}, false);
+    document.getElementById('toggleBack').addEventListener('click', function(){toggleBack()}, false);
     document.getElementById('left').addEventListener('click', function(){changeSong("left")}, false);
     document.getElementById('right').addEventListener('click', function(){changeSong("right")}, false);
 }
-
+function toggleBack(){
+    audio.pause();
+    audio.currentTime = 0;
+    document.getElementById("introBox").style.display ="block";
+}
 function toggleBio(){
     document.getElementById("greetings").style.display = "none";
 }
