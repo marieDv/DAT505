@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="38" column="434" lean-forward="false" selection-start-line="38" selection-start-column="434" selection-end-line="38" selection-end-column="434" />
+            <state relative-caret-position="272">
+              <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -25,27 +25,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="1564">
+              <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="n#!!block;n#changeSong#0" expanded="false" />
-                <element signature="n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#toggleBack#0" expanded="false" />
                 <element signature="n#!!block;n#toggleBio#0" expanded="false" />
                 <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-                <element signature="n#!!block;n#setupCopy#0" expanded="false" />
                 <element signature="n#!!block;n#addComposer#0" expanded="false" />
                 <element signature="n#!!block;n#createLines#0" expanded="false" />
                 <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -54,7 +44,6 @@
                 <element signature="n#!!block;n#resetModel#0" expanded="false" />
                 <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
                 <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-                <element signature="n#!!block;n#drawFrame#0" expanded="false" />
                 <element signature="n#!!block;n#animateCamera#0" expanded="false" />
                 <element signature="n#!!block;n#wakov#0" expanded="false" />
                 <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -63,42 +52,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BloomPass.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/BloomPass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="118" column="62" lean-forward="false" selection-start-line="118" selection-start-column="62" selection-end-line="118" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ColorifyShader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/ColorifyShader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="2" lean-forward="false" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AfterimageShader.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/AfterimageShader.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AfterimagePass.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/AfterimagePass.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="87" column="4" lean-forward="false" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="136">
+                <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -114,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>renderer</find>
       <find>re</find>
       <find>changeSong</find>
       <find>chan</find>
@@ -142,8 +103,9 @@
       <find>ta reine</find>
       <find>songTitle</find>
       <find>scale</find>
-      <find>mariedv</find>
       <find>back</find>
+      <find>mariedv</find>
+      <find>mapAudio</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -166,8 +128,9 @@
         <option value="$PROJECT_DIR$/js/ColorifyShader.js" />
         <option value="$PROJECT_DIR$/js/BloomPass.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/index.js" />
       </list>
     </option>
   </component>
@@ -229,21 +192,6 @@
             <path>
               <item name="DAT505_project_dvorzak" type="b2602c69:ProjectViewProjectNode" />
               <item name="DAT505_project_dvorzak" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="DAT505_project_dvorzak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DAT505_project_dvorzak" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="audio" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="DAT505_project_dvorzak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DAT505_project_dvorzak" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="DAT505_project_dvorzak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DAT505_project_dvorzak" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="DAT505_project_dvorzak" type="b2602c69:ProjectViewProjectNode" />
@@ -321,12 +269,12 @@
       <workItem from="1545866454133" duration="464000" />
       <workItem from="1546120390169" duration="176000" />
       <workItem from="1546189816466" duration="24872000" />
-      <workItem from="1546703197049" duration="4466000" />
+      <workItem from="1546703197049" duration="7914000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104569000" />
+    <option name="totallyTimeSpent" value="108017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -336,6 +284,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -347,7 +296,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -383,24 +331,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/AfterimagePass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="87" column="4" lean-forward="false" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="109" column="61" lean-forward="false" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -409,7 +349,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -442,11 +381,11 @@
         <state relative-caret-position="2040">
           <caret line="131" column="36" lean-forward="false" selection-start-line="131" selection-start-column="36" selection-end-line="131" selection-end-column="36" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -455,7 +394,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -488,11 +426,11 @@
         <state relative-caret-position="1921">
           <caret line="124" column="17" lean-forward="true" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -501,7 +439,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -534,11 +471,11 @@
         <state relative-caret-position="1343">
           <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -547,7 +484,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -572,11 +508,11 @@
         <state relative-caret-position="2465">
           <caret line="145" column="38" lean-forward="false" selection-start-line="145" selection-start-column="38" selection-end-line="145" selection-end-column="38" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -585,7 +521,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -638,11 +573,11 @@
         <state relative-caret-position="476">
           <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -651,7 +586,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -676,11 +610,11 @@
         <state relative-caret-position="1105">
           <caret line="77" column="1" lean-forward="false" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -689,7 +623,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -714,11 +647,11 @@
         <state relative-caret-position="1105">
           <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -727,7 +660,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -759,11 +691,11 @@
         <state relative-caret-position="3094">
           <caret line="219" column="0" lean-forward="true" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -772,7 +704,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -797,11 +728,11 @@
         <state relative-caret-position="1292">
           <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -810,7 +741,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -842,11 +772,11 @@
         <state relative-caret-position="1309">
           <caret line="89" column="31" lean-forward="false" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -855,7 +785,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -880,11 +809,11 @@
         <state relative-caret-position="561">
           <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -893,7 +822,6 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
@@ -1008,22 +936,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="153">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        <state relative-caret-position="1564">
+          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#changeSong#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#toggleBack#0" expanded="false" />
             <element signature="n#!!block;n#toggleBio#0" expanded="false" />
             <element signature="n#!!block;n#addShaderLights#0" expanded="false" />
-            <element signature="n#!!block;n#setupCopy#0" expanded="false" />
             <element signature="n#!!block;n#addComposer#0" expanded="false" />
             <element signature="n#!!block;n#createLines#0" expanded="false" />
             <element signature="n#!!block;n#createLyrics#0" expanded="false" />
@@ -1032,22 +983,9 @@
             <element signature="n#!!block;n#resetModel#0" expanded="false" />
             <element signature="n#!!block;n#mapAudioInformation#0" expanded="false" />
             <element signature="n#!!block;n#initializeAudio#0" expanded="false" />
-            <element signature="n#!!block;n#drawFrame#0" expanded="false" />
             <element signature="n#!!block;n#animateCamera#0" expanded="false" />
             <element signature="n#!!block;n#wakov#0" expanded="false" />
             <element signature="n#!!block;n#onWindowResize#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="38" column="434" lean-forward="false" selection-start-line="38" selection-start-column="434" selection-end-line="38" selection-end-column="434" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,20 +1,29 @@
-var renderer, scene, camera, warpVector, extrudePath,
-    frequencyData, audio, analyser, plane, geometry, material, points, pipeSpline, direction, composer,lyrics,tempWord,countWords=0
+/*
+*INDEX.JS FILE
+* contains three.js related logic and event listeners
+*
+*/
+
+
+var renderer, scene, camera, extrudePath,
+    frequencyData, audio, analyser, geometry, material, points, pipeSpline, direction, composer,lyrics,tempWord,countWords=0
 ;
 
 var toggleSong = false;
 var startedAudio = false;
 var wait = false;
 //shader related variables
-var occlusionComposer, occlusionRenderTarget, occlusionBox, lightSphere,
+var occlusionComposer, lightSphere,
 
     angle = 0,
     DEFAULT_LAYER = 0,
     OCCLUSION_LAYER = 1;
-
+//variables for a random animation
 var time = 0;
 var cRot = 0.3;
 var tRot = 0.8;
+
+
 var frequencyCounter = 0;
 const planeVertices = 32; //128
 var counter = -10; //-70
@@ -25,6 +34,11 @@ var shadowGroup = new THREE.Object3D();
 var groupSec = new THREE.Object3D();
 var shadowGroupSec = new THREE.Object3D();
 
+
+
+/*
+// CHANGE THE SONG and rewrite the related variables in the code after a user has pressed the back or forth buttons
+ */
 function changeSong(direction){
 
     let temp = camera.rotation.y;
@@ -40,6 +54,9 @@ function changeSong(direction){
         console.log(toggleSong)
     initializeAudio();
 }
+/*
+// handles the basic setup of the scene and the event listeners
+ */
 function init() {
     window.addEventListener( 'resize', onWindowResize, false );
 
@@ -78,24 +95,26 @@ function init() {
     addShaderLights();
     initializeAudio();
     for (let i = 0; i < planeVertices / 2; i++) {
-        loadBasicSurface(group, shadowGroup);
+        // loadBasicSurface(group, shadowGroup);
+        loadBasicSurface(groupSec, shadowGroupSec);
     }
     for (let i = 0; i < planeVertices / 2; i++) {
-        loadBasicSurface(groupSec, shadowGroupSec);
+        // loadBasicSurface(groupSec, shadowGroupSec);
+        loadBasicSurface(group, shadowGroup);
     }
     scene.add(groupSec);
     scene.add(shadowGroupSec);
 
-    groupSec.position.set(90, 40, 130);
-    shadowGroupSec.position.set(90, 40, 130);
+    groupSec.position.set(208, 40, 130);
+    shadowGroupSec.position.set(208, 40, 130);
 
     scene.add(group);
     scene.add(shadowGroup);
 
+    group.position.set(-180, 30, 100)
+    shadowGroup.position.set(-180, 30, 100)
 
 
-    group.position.set(-45, 30, 100)
-    shadowGroup.position.set(-45, 30, 100)
     document.body.appendChild(renderer.domElement);
     addComposer();
     createLyrics();
@@ -104,15 +123,24 @@ function init() {
     document.getElementById('left').addEventListener('click', function(){changeSong("left")}, false);
     document.getElementById('right').addEventListener('click', function(){changeSong("right")}, false);
 }
+/*
+// handles the back-event
+ */
 function toggleBack(){
     audio.pause();
     audio.currentTime = 0;
     document.getElementById("introBox").style.display ="block";
     toggleSong === true ? resetModel(group) : resetModel(groupSec);
 }
+/*
+// toggles the bio that is shown as introduction on the page
+ */
 function toggleBio(){
     document.getElementById("greetings").style.display = "none";
 }
+/*
+// adds a light sphere to the background, that is then rendered with the rest of the occlusion layer
+ */
 function addShaderLights() {
     // let shaderGeometry = new THREE.SphereGeometry(200, 80, 16);
     let shaderGeometry = new THREE.SphereGeometry(20, 80, 16);
@@ -125,6 +153,9 @@ function addShaderLights() {
 
     // scene.add(lightSphere);
 }
+/*
+// builds meshes for each relevant part of the frequence - depend on the number of planeVertices that is given
+ */
 function loadBasicSurface(group, shadowGroup) {
 
     createLines();
@@ -141,13 +172,11 @@ function loadBasicSurface(group, shadowGroup) {
     var material = new THREE.MeshLambertMaterial({
         color: 0x111111,
         side: THREE.DoubleSide,
-        // specular: 0x2d2d2d,
         wireframeLinewidth: 1,
     });
     var shadowMaterial = new THREE.MeshLambertMaterial({
         color: "#f1f1f1",
         side: THREE.DoubleSide,
-        // specular: 0x2d2d2d,
         wireframeLinewidth: 1,
     });
 
@@ -162,6 +191,9 @@ function loadBasicSurface(group, shadowGroup) {
     counter += 8;
 
 }
+/*
+// helper methods for loadBasicSurface
+ */
 function setupCopy(mObject) {
     mObject.curve = pipeSpline;
     mObject.rotation.x += 2.9; //2.5 flach 1.5 winkel 1 flach horizontal
@@ -174,6 +206,9 @@ function setupCopy(mObject) {
     mObject.material.needsUpdate = true;
     mObject.geometry.colorsNeedUpdate = true;
 }
+/*
+// contains composers for postprocessing - this project renders two different layers seperately to minimize the render time
+ */
 function addComposer() {
     var pass,
         occlusionRenderTarget = new THREE.WebGLRenderTarget(window.innerWidth * 0.3, window.innerHeight * 0.3);
@@ -210,6 +245,9 @@ function addComposer() {
     composer.addPass(pass);
     pass.renderToScreen = true;
 }
+/*
+// creates basic lines for the extruded geometry
+ */
 function createLines() {
     pipeSpline = new THREE.CatmullRomCurve3([
         new THREE.Vector3(0, -10, 0),
@@ -223,6 +261,9 @@ function createLines() {
         // new THREE.Vector3( 0, 0, 40 )
     ]);
 }
+/*
+// get's content of the lyrics object (WAS LATER REMOVED DUE TO DESIGN REASONS)
+ */
 function createLyrics(){
     let templyrics = document.getElementById("lyrics");
     lyrics = templyrics.innerHTML.split(" ");
@@ -237,6 +278,9 @@ function createLyrics(){
     }
 
 }
+/*
+// maps Lyrics to the currently animated geometry (WAS LATER REMOVED DUE TO DESIGN REASONS)
+ */
 function mapLyrics(fd, i, child){
     let word = document.getElementsByClassName("line");
         word[countWords].style.top = (child.scale.x*30*Math.random()) +"px";
@@ -256,6 +300,9 @@ function mapLyrics(fd, i, child){
         },1500)
 
 }
+/*
+// changes the color of the geometry depending on the frequence that is currently played
+ */
 function colorChange(frequencyData, i, group){
 
     if (frequencyData[i] > 20 && frequencyData[i] < 100) { //middletones
@@ -287,6 +334,9 @@ function colorChange(frequencyData, i, group){
         group.children[i].material.color = updateColor;
     }
 }
+/*
+// reset model after the user changes song
+ */
 function resetModel(group){
 
     for(let i=0; i<planeVertices;i++){
@@ -301,6 +351,9 @@ function resetModel(group){
         }
     }
 }
+/*
+// scale and vertice transformation of the models depending on the current frequencies of the song
+ */
 function mapAudioInformation(group, shadowGroup) {
 
     for (let i = 0; i < planeVertices; i++) {
@@ -350,6 +403,9 @@ function mapAudioInformation(group, shadowGroup) {
 
 
 }
+/*
+// contains all methods that should be called after a song has started
+ */
 function initializeAudio() {
     var ctx = new AudioContext();
     toggleSong === false ? document.getElementById("audioFileOne").src = "./audio/tareine.m4r"  : document.getElementById("audioFileOne").src = "./audio/laLoideMurphy.mp3" ;
@@ -387,9 +443,13 @@ function drawFrame(ts) {
     if (startedAudio) {
         animateCamera();
         wakov();
-        toggleSong === false ? mapAudioInformation(group, shadowGroup) : mapAudioInformation(groupSec, shadowGroupSec);
+        // toggleSong === false ? mapAudioInformation(group, shadowGroup) : mapAudioInformation(groupSec, shadowGroupSec);
+        mapAudioInformation(group, shadowGroup)
     }
 }
+/*
+// slightly moves camera on the z and x axis for effect
+ */
 function animateCamera(){
     if(tRot > 1.5){
         camera.position.z += 0.05*cRot;//85
@@ -405,6 +465,9 @@ function animateCamera(){
 
 
 //HELPER FUNCTIONS
+/*
+// computes a random value that is responsible for the camera animation
+ */
 function wakov(){
     if(Math.floor(Math.random()< 0.01)){
         if(tRot > 1.5){
@@ -416,6 +479,9 @@ function wakov(){
     }
     cRot+=(tRot-cRot)/100;
 }
+/*
+// handles canvas size after the window has been resized
+ */
 function onWindowResize(){
 
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -424,12 +490,5 @@ function onWindowResize(){
     renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
-//TODO:
-//getByTimeDomainData() -> WAVEFORM
-//beziercurves
-// group.children[i].geometry.computeVertexNormals();
-//interpolation
-//effect.uniforms['amount'].value = true;
-// occlusionBox.position.copy(box.position);
 init();
 drawFrame();
