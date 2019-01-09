@@ -8,7 +8,9 @@
 canvas {
     display: block;
 }
-
+a {
+    color: white;
+}
 #introBox {
     position: absolute;
     margin: auto;
@@ -137,6 +139,13 @@ canvas {
     background: transparent;
     bottom: 3vh;
     left: 3vh;
+
+}
+.nav_buttons {
+    background: none;
+    border: inherit;
+    display: inline;
+    cursor: pointer;
 
 }
 

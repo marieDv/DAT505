@@ -34,8 +34,8 @@ function changeSong(direction){
     direction === "left" ? TweenMax.to(camera.rotation, 2, {y:tempRot+0.001}) : TweenMax.to(camera.rotation, 2, {y:tempRot-0.003});
     direction === "left" ? document.getElementById("left").style.visibility = "hidden" : document.getElementById("right").style.visibility = "hidden" ;
     direction === "left" ? document.getElementById("right").style.visibility = "visible" : document.getElementById("left").style.visibility = "visible" ;
-    direction === "left" ? document.getElementById("songTitle").innerHTML = "Ta Reine" : document.getElementById("songTitle").innerHTML = "Tout oblier";
-    direction === "left" ? document.getElementById("songTitle").style.marginLeft = "-4px" : document.getElementById("songTitle").style.marginLeft = "-22px";
+    direction === "left" ? document.getElementById("songTitle").innerHTML = "Ta Reine" : document.getElementById("songTitle").innerHTML = "La Loi de Murphy";
+    direction === "left" ? document.getElementById("songTitle").style.marginLeft = "-4px" : document.getElementById("songTitle").style.marginLeft = "-57px";
 
         console.log(toggleSong)
     initializeAudio();
@@ -108,6 +108,7 @@ function toggleBack(){
     audio.pause();
     audio.currentTime = 0;
     document.getElementById("introBox").style.display ="block";
+    toggleSong === true ? resetModel(group) : resetModel(groupSec);
 }
 function toggleBio(){
     document.getElementById("greetings").style.display = "none";
@@ -140,13 +141,13 @@ function loadBasicSurface(group, shadowGroup) {
     var material = new THREE.MeshLambertMaterial({
         color: 0x111111,
         side: THREE.DoubleSide,
-        specular: 0x2d2d2d,
+        // specular: 0x2d2d2d,
         wireframeLinewidth: 1,
     });
     var shadowMaterial = new THREE.MeshLambertMaterial({
         color: "#f1f1f1",
         side: THREE.DoubleSide,
-        specular: 0x2d2d2d,
+        // specular: 0x2d2d2d,
         wireframeLinewidth: 1,
     });
 
@@ -166,9 +167,6 @@ function setupCopy(mObject) {
     mObject.rotation.x += 2.9; //2.5 flach 1.5 winkel 1 flach horizontal
     // if(creationCounter >= planeVertices/2){
     mObject.position.set(counter, -100, -200);
-    // }else{
-    //     plane.position.set(counter, -100+(counter/2), -200);
-    // }
     creationCounter++;
     mObject.receiveShadow = true;
     mObject.castShadow = true;
@@ -258,7 +256,7 @@ function mapLyrics(fd, i, child){
         },1500)
 
 }
-function colorChange(frequencyData, i){
+function colorChange(frequencyData, i, group){
 
     if (frequencyData[i] > 20 && frequencyData[i] < 100) { //middletones
         let updateColor = new THREE.Color("rgb(" + 40 + "%, " + 40 + "%, " + 40 + "%)");//30 80
@@ -269,7 +267,7 @@ function colorChange(frequencyData, i){
         group.children[i].material.color = updateColor;
         if(!wait){
             wait = true;
-            mapLyrics(frequencyData[i], i, group.children[i]);
+            // mapLyrics(frequencyData[i], i, group.children[i]);
         }else{
             setTimeout(()=> {
                 wait = false;
@@ -289,6 +287,20 @@ function colorChange(frequencyData, i){
         group.children[i].material.color = updateColor;
     }
 }
+function resetModel(group){
+
+    for(let i=0; i<planeVertices;i++){
+        if(group.children[i]){
+            console.log("reset?")
+        group.children[i].scale.y = 1;//frequencyData[i] / 60
+        group.children[i].scale.z = 1;
+        group.children[i].scale.x = 1;
+        shadowGroup.children[i].scale.y = 1;//frequencyData[i] / 60
+        shadowGroup.children[i].scale.z = 1;
+        shadowGroup.children[i].scale.x = 1;
+        }
+    }
+}
 function mapAudioInformation(group, shadowGroup) {
 
     for (let i = 0; i < planeVertices; i++) {
@@ -306,7 +318,7 @@ function mapAudioInformation(group, shadowGroup) {
             } else {
                 lightSphere.scale.y = frequencyData[10] / 20;
             }
-            colorChange(frequencyData, i);
+            colorChange(frequencyData, i, group);
 
         }
 
@@ -340,8 +352,7 @@ function mapAudioInformation(group, shadowGroup) {
 }
 function initializeAudio() {
     var ctx = new AudioContext();
-    // toggleSong === false ? audio = document.getElementById("audioFileOne").src  : audio = document.getElementById("audioFileTwo").src ;
-    toggleSong === false ? document.getElementById("audioFileOne").src = "./audio/tareine.m4r"  : document.getElementById("audioFileOne").src = "./audio/afraid.m4a" ;
+    toggleSong === false ? document.getElementById("audioFileOne").src = "./audio/tareine.m4r"  : document.getElementById("audioFileOne").src = "./audio/laLoideMurphy.mp3" ;
     audio = document.getElementById("audioFileOne");
     var audioSrc = ctx.createMediaElementSource(audio);
     analyser = ctx.createAnalyser();
