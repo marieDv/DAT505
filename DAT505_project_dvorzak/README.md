@@ -25,5 +25,5 @@ Both layers are extended through a mixture of manipulations due to the Volumetri
 Both the group models and the shadow-siblings go through various manipulations while the animation is running. They are being scaled and the color is modified. But the most important and tricky part is the recalculation of the line, that is responsible for the extrusion of the THREE.TubeBufferGeometry. Each point of the THREE.CatmullRomCurve3 is calculated by taking a corresponding part of the frequence choosen in a way that shows the frequence-change in the bending of the geometry.
 
 
-
+The project is not uploaded on Codepen since it surcharged the allowed file size and count. It will be published soon on my personal website. 
 https://github.com/marieDv/DAT505/tree/master/DAT505_project_dvorzak
