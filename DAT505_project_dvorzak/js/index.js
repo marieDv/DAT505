@@ -306,15 +306,14 @@ function mapLyrics(fd, i, child){
 function colorChange(frequencyData, i, group){
 
     if (frequencyData[i] > 20 && frequencyData[i] < 100) { //middletones
-        let updateColor = new THREE.Color("rgb(" + 40 + "%, " + 40 + "%, " + 40 + "%)");//30 80
+        let updateColor = new THREE.Color("rgb(" + 30 + "%, " + 30 + "%, " + 30 + "%)");//30 80
         group.children[i].material.color = updateColor;
     }
     if (frequencyData[i] > 85 && frequencyData[i] < 90) { //female lead
-        let updateColor = new THREE.Color("rgb(" + 180 + "%, " + 180 + "%, " + 180 + "%)");//30 80
+        let updateColor = new THREE.Color("rgb(" + 160 + "%, " + 160 + "%, " + 160 + "%)");//30 80
         group.children[i].material.color = updateColor;
         if(!wait){
             wait = true;
-            // mapLyrics(frequencyData[i], i, group.children[i]);
         }else{
             setTimeout(()=> {
                 wait = false;
@@ -326,11 +325,11 @@ function colorChange(frequencyData, i, group){
         group.children[i].material.color = updateColor;
     }
     if (frequencyData[i] > 240 && frequencyData[i] < 440) { //SNARE
-        let updateColor = new THREE.Color("rgb(" + 50 + "%, " + 50 + "%, " + 50 + "%)");//30 80
+        let updateColor = new THREE.Color("rgb(" + 40 + "%, " + 40 + "%, " + 40 + "%)");//30 80
         group.children[i].material.color = updateColor;
     }
     if (frequencyData[i] > 400) {
-        let updateColor = new THREE.Color("rgb(" + 50 + "%, " + 50 + "%, " + 60 + "%)");
+        let updateColor = new THREE.Color("rgb(" + 40 + "%, " + 40 + "%, " + 60 + "%)");
         group.children[i].material.color = updateColor;
     }
 }
@@ -443,8 +442,8 @@ function drawFrame(ts) {
     if (startedAudio) {
         animateCamera();
         wakov();
-        // toggleSong === false ? mapAudioInformation(group, shadowGroup) : mapAudioInformation(groupSec, shadowGroupSec);
-        mapAudioInformation(group, shadowGroup)
+        toggleSong === false ? mapAudioInformation(group, shadowGroup) : mapAudioInformation(groupSec, shadowGroupSec);
+        // mapAudioInformation(group, shadowGroup)
     }
 }
 /*
